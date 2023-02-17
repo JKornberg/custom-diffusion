@@ -1,0 +1,9 @@
+models/*
+*.ckpt
+stable-diffusion/*
+stable-diffusion
+**.png
+**.jpg
+src/__pycache__
+data/*
+data

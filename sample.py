@@ -335,7 +335,7 @@ def main():
     else:
         os.makedirs(opt.outdir, exist_ok=True)
         outpath = opt.outdir
-
+    outpath = "out/"
     batch_size = opt.n_samples
     n_rows = opt.n_rows if opt.n_rows > 0 else batch_size
     if not opt.from_file:
@@ -407,7 +407,7 @@ def main():
                         grid = 255. * rearrange(grid, 'c h w -> h w c').cpu().numpy()
                         img = Image.fromarray(grid.astype(np.uint8))
                         sampling_method = 'plms' if opt.plms else 'ddim'
-                        img.save(os.path.join(outpath, f'{prompts[0].replace(" ", "-")}_{opt.scale}_{sampling_method}_{opt.ddim_steps}_{opt.ddim_eta}.png'))
+                        img.save(os.path.join(outpath, f'newCatRoof.png'))
                         if opt.wandb_log:
                             wandb.log({  f'{prompts[0].replace(" ", "-")}_{opt.scale}_{sampling_method}_{opt.ddim_steps}_{opt.ddim_eta}.png'  : [wandb.Image(img)]})
                         grid_count += 1
